@@ -2,45 +2,39 @@ import { useEffect, useState } from "react";
 import NewsApiService from "../services/api";
 
 const Headlines = () => {
-  const [headlines, setHeadlines] = useState([]);
+  const [articles, setArticles] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchArticles() {
       const data = await NewsApiService.getAllArticles();
-      setHeadlines(data.articles);
+      setArticles(data);
+      setIsLoading(false);
       console.log(data);
     }
     fetchArticles();
   }, []);
 
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div className="flex items-center justify-center mt-10">
       <div className="grid grid-cols-1 gap-2">
-        <div className="bg-white box-border border p-2 border-gray-900 rounded-xl">
-          <h1 className="Archivo text-2xl">
-            Police chief warns UK to 'be alert, not alarmed' ahead of Christmas
-            after Wisconsin parade deaths
-          </h1>
-          <p className="text-xl raleway font-medium">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Consequatur totam nostrum excepturi quod nemo est tempora quaerat
-            similique, accusantium ea laudantium omnis ipsa deserunt architecto
-            aspernatur cum adipisci nam reprehenderit.
-          </p>
-        </div>
-        <div className="bg-white box-border border p-2 border-gray-900 rounded-xl">
-          <h1 className="Archivo text-2xl">
-            Police chief warns UK to 'be alert, not alarmed' ahead of Christmas
-            after Wisconsin parade deaths
-          </h1>
-          <p className="text-xl raleway font-medium">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Consequatur totam nostrum excepturi quod nemo est tempora quaerat
-            similique, accusantium ea laudantium omnis ipsa deserunt architecto
-            aspernatur cum adipisci nam reprehenderit.
-          </p>
-        </div>
+        {articles.map((article) => {
+          return (
+            <div
+              className="bg-white box-border border p-2 border-gray-900 rounded-xl"
+              key={article.article_id}
+            >
+              <h1 className="Archivo text-2xl">{article.title}</h1>
+              <p className="text-xl raleway font-medium">
+                author: {article.author}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
