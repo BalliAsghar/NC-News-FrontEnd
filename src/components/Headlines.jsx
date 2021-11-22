@@ -1,4 +1,19 @@
+import { useEffect, useState } from "react";
+import NewsApiService from "../services/api";
+
 const Headlines = () => {
+  const [headlines, setHeadlines] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchArticles() {
+      const data = await NewsApiService.getAllArticles();
+      setHeadlines(data.articles);
+      console.log(data);
+    }
+    fetchArticles();
+  }, []);
+
   return (
     <div className="flex items-center justify-center mt-10">
       <div className="grid grid-cols-1 gap-2">
