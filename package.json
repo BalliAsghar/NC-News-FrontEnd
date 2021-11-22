@@ -7,11 +7,15 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.4.1",
+    "@tailwindcss/ui": "^0.7.2",
     "@vitejs/plugin-react": "^1.0.0",
+    "tailwindcss": "^2.2.19",
     "vite": "^2.6.4"
   }
 }
