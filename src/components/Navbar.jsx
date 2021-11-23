@@ -1,4 +1,9 @@
-const Narbar = () => {
+import { useContext, useEffect, useState } from "react";
+import UserContext from "../context/User.Context";
+
+const Navbar = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <header className="text-gray-400 bg-white body-font">
       <div className="container mx-auto flex flex-wrap p-2  flex-col md:flex-row items-center">
@@ -13,4 +18,4 @@ const Narbar = () => {
   );
 };
 
-export default Narbar;
+export default Navbar;

@@ -6,13 +6,12 @@ const Headlines = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchArticles() {
-      const data = await NewsApiService.getAllArticles();
+    async function fetchData() {
+      const data = await NewsApiService.getArticles();
       setArticles(data);
       setIsLoading(false);
-      console.log(data);
     }
-    fetchArticles();
+    fetchData();
   }, []);
 
   if (isLoading) {
