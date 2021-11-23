@@ -18,7 +18,7 @@ function App() {
         <Topics />
         <Routes>
           <Route path="/" element={<Headlines />} />
-          <Route path="/article/:articleID" element={<Headlines />} />
+          <Route path="/article/:articleID" element={<Article />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>

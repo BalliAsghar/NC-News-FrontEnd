@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import NewsApiService from "../services/api";
 
 const Headlines = () => {
@@ -27,7 +28,11 @@ const Headlines = () => {
               className="bg-white box-border border p-2 border-gray-900 rounded-xl"
               key={article.article_id}
             >
-              <h1 className="Archivo text-2xl">{article.title}</h1>
+              <h1 className="Archivo text-2xl">
+                <Link to={`/article/${article.article_id}`}>
+                  {article.title}
+                </Link>
+              </h1>
               <p className="text-xl raleway font-medium">
                 author: {article.author}
               </p>
