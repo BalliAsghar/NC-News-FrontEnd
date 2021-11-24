@@ -15,7 +15,6 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
         <Navbar />
-        <PageTitle />
         <Topics />
         <Routes>
           <Route path="/" element={<Headlines />} />

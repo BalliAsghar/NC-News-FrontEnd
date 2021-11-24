@@ -8,7 +8,7 @@ const Topics = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="flex flex-auto content-center justify-center mt-3">
+    <div className="flex flex-auto content-center justify-center mt-3 -ml-20">
       {topics.map((topic) => {
         return (
           <div
