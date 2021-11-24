@@ -1,6 +1,5 @@
 import useTopics from "../hooks/useTopics";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 
 const Topics = () => {
   const { topics, loading, error } = useTopics();

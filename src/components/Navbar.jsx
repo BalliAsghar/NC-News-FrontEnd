@@ -13,6 +13,14 @@ const Navbar = () => {
             <Link to="/">NC News</Link>
           </h1>
         </div>
+        <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+          <Link
+            to={"/user/login"}
+            className="raleway mx-1 text-2xl font-semibold bg-gray-800 border rounded p-2 text-white hover:bg-gray-900 cursor-pointer"
+          >
+            Post
+          </Link>
+        </div>
       </div>
     </header>
   );
