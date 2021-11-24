@@ -19,7 +19,7 @@ const ArticlesByTopics = () => {
           {articles.map((article) => {
             return (
               <div
-                className="bg-white box-border border p-2 border-gray-900 rounded-xl"
+                className="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed"
                 key={article.article_id}
               >
                 <h1 className="Archivo text-2xl">
