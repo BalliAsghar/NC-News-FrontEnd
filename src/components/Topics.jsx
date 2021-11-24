@@ -13,7 +13,7 @@ const Topics = () => {
         return (
           <div
             key={topic.slug}
-            className="text-xl p-2 border bg-blue-500 text-white rounded raleway cursor-pointer hover:bg-blue-700 shadow-xl"
+            className="raleway mx-1 text-2xl font-medium bg-gray-400 rounded p-2 text-white "
           >
             <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
           </div>

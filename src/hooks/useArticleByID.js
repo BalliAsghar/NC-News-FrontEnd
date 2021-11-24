@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import NewsServiceApi from "../services/api";
 
 const useArticleByID = (id) => {
-  const [article, setArticle] = useState(null);
+  const [article, setArticle] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
