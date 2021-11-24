@@ -4,9 +4,14 @@ const NewsAPI = axios.create({
   baseURL: "https://balli-nc-news.herokuapp.com/api",
 });
 
-const getArticles = async () => {
+const getArticles = async (topic) => {
+  // query params
+  const params = {
+    topic: topic,
+  };
+
   try {
-    const resopnse = await NewsAPI.get("/articles");
+    const resopnse = await NewsAPI.get("/articles", { params });
     return resopnse;
   } catch (error) {
     return error;
