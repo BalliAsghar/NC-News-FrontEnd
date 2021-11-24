@@ -15,7 +15,7 @@ const Headlines = () => {
           {articles.map((article) => {
             return (
               <div
-                className="bg-white box-border border p-2 border-gray-900 rounded-xl"
+                className="bg-white box-border border p-2 border-green-500 rounded-xl"
                 key={article.article_id}
               >
                 <h1 className="Archivo text-2xl">
