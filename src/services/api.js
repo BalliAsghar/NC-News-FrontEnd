@@ -5,7 +5,6 @@ const NewsAPI = axios.create({
 });
 
 const getArticles = async (topic) => {
-  // query params
   const params = {
     topic: topic,
   };
@@ -36,10 +35,20 @@ const getArticlesByID = async (id) => {
   }
 };
 
+const getCommentsByArticleID = async (id) => {
+  try {
+    const resopnse = await NewsAPI.get(`/articles/${id}/comments`);
+    return resopnse;
+  } catch (error) {
+    return error;
+  }
+};
+
 const ApiServices = {
   getArticles,
   getTopics,
   getArticlesByID,
+  getCommentsByArticleID,
 };
 
 export default ApiServices;

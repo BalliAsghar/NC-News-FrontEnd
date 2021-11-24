@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom";
 import useArticleByID from "../hooks/useArticleByID";
+import useArticleComments from "../hooks/useArticleComments";
+import Comments from "./Comments";
+
 const Article = () => {
   const { articleID } = useParams();
 
   const { article, error, loading } = useArticleByID(articleID);
+  const { comments, commentsError, commentsloading } =
+    useArticleComments(articleID);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -26,6 +31,7 @@ const Article = () => {
       <h2 className="text-gray-700 font-bold mt-14 text-2xl font-mono">
         Comments
       </h2>
+      {!commentsloading ? <Comments comments={comments} /> : "Loading"}
     </div>
   );
 };
