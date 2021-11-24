@@ -8,25 +8,28 @@ const Headlines = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="flex items-center justify-center mt-10">
-      <div className="grid grid-cols-1 gap-2">
-        {articles.map((article) => {
-          return (
-            <div
-              className="bg-white box-border border p-2 border-gray-900 rounded-xl"
-              key={article.article_id}
-            >
-              <h1 className="Archivo text-2xl">
-                <Link to={`/article/${article.article_id}`}>
-                  {article.title}
-                </Link>
-              </h1>
-              <p className="text-xl raleway font-medium">
-                author: {article.author}
-              </p>
-            </div>
-          );
-        })}
+    <div>
+      {" "}
+      <div className="flex items-center justify-center mt-10">
+        <div className="grid grid-cols-1 gap-2">
+          {articles.map((article) => {
+            return (
+              <div
+                className="bg-white box-border border p-2 border-gray-900 rounded-xl"
+                key={article.article_id}
+              >
+                <h1 className="Archivo text-2xl">
+                  <Link to={`/article/${article.article_id}`}>
+                    {article.title}
+                  </Link>
+                </h1>
+                <p className="text-xl raleway font-medium">
+                  author: {article.author}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

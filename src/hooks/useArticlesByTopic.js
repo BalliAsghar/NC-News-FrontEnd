@@ -18,6 +18,7 @@ const useArticlesByTopic = (topic) => {
         setLoading(false);
       }
     };
+    fetchData();
   }, [topic]);
 
   return { articles, error, loading };
