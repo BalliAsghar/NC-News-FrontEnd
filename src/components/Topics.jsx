@@ -1,5 +1,6 @@
 import useTopics from "../hooks/useTopics";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Topics = () => {
   const { topics, loading, error } = useTopics();
@@ -13,7 +14,7 @@ const Topics = () => {
         return (
           <div
             key={topic.slug}
-            className="raleway mx-1 text-2xl font-medium bg-pink-300 rounded p-2 text-black "
+            className="raleway mx-1 text-2xl font-semibold bg-white border rounded p-2 text-black hover:bg-gray-700 hover:text-white"
           >
             <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
           </div>
