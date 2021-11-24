@@ -7,7 +7,7 @@ const NewsAPI = axios.create({
 const getArticles = async () => {
   try {
     const resopnse = await NewsAPI.get("/articles");
-    return resopnse.data.Articles;
+    return resopnse;
   } catch (error) {
     return error;
   }
@@ -16,7 +16,16 @@ const getArticles = async () => {
 const getTopics = async () => {
   try {
     const resopnse = await NewsAPI.get("/topics");
-    return resopnse.data.topics;
+    return resopnse;
+  } catch (error) {
+    return error;
+  }
+};
+
+const getArticlesByID = async (id) => {
+  try {
+    const resopnse = await NewsAPI.get(`/articles/${id}`);
+    return resopnse;
   } catch (error) {
     return error;
   }
@@ -25,6 +34,7 @@ const getTopics = async () => {
 const ApiServices = {
   getArticles,
   getTopics,
+  getArticlesByID,
 };
 
 export default ApiServices;

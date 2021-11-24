@@ -1,23 +1,11 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import NewsApiService from "../services/api";
+import useAllArticles from "../hooks/useAllArticles";
 
 const Headlines = () => {
-  const [articles, setArticles] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  const { articles, error, loading } = useAllArticles();
 
-  useEffect(() => {
-    async function fetchData() {
-      const data = await NewsApiService.getArticles();
-      setArticles(data);
-      setIsLoading(false);
-    }
-    fetchData();
-  }, []);
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <div className="flex items-center justify-center mt-10">
