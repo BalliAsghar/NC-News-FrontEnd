@@ -9,10 +9,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./components/Login";
 
 import UserContext from "./context/User.Context";
-import Login from "./components/Login";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>

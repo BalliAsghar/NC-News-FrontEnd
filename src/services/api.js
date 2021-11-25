@@ -61,12 +61,23 @@ const postCommentOnArticle = async (id, username, comment) => {
   }
 };
 
+const login = async (username) => {
+  try {
+    const resopnse = await NewsAPI.get(`/users/${username}`);
+    console.log(resopnse.data.user);
+    return resopnse.data.user;
+  } catch (error) {
+    return error;
+  }
+};
+
 const ApiServices = {
   getArticles,
   getTopics,
   getArticlesByID,
   getCommentsByArticleID,
   postCommentOnArticle,
+  login,
 };
 
 export default ApiServices;
