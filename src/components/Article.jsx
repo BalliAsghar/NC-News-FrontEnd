@@ -26,7 +26,7 @@ const Article = () => {
         <h2 className="text-gray-700 font-bold mt-14 text-2xl font-mono">
           Comments
         </h2>
-        <AddComments />
+        <AddComments articleId={article.article_id} />
         <Comments articleId={article.article_id} />
       </div>
     );

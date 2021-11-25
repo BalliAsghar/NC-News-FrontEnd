@@ -1,16 +1,16 @@
 import { useState } from "react";
 import NewsServiceApi from "../services/api";
-const AddComments = () => {
+const AddComments = ({ articleId }) => {
   const [comment, setComment] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await NewsServiceApi.postCommentOnArticle(
-        34,
+        articleId,
         "jessjelly",
         comment
       );
-      console.log(response);
+      setComment("");
     } catch (error) {
       console.log(error);
     }
