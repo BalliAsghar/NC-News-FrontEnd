@@ -19,6 +19,9 @@ const useTopics = () => {
       }
     };
     fetchData();
+    return () => {
+      setTopics([]);
+    };
   }, []);
 
   return { topics, loading, error };
