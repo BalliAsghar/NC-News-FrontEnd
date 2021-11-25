@@ -71,6 +71,18 @@ const login = async (username) => {
   }
 };
 
+const likeComment = async (id) => {
+  const data = {
+    inc_votes: 1,
+  };
+  try {
+    const resopnse = await NewsAPI.patch(`/comments/${id}`, data);
+    return resopnse;
+  } catch (error) {
+    return error;
+  }
+};
+
 const ApiServices = {
   getArticles,
   getTopics,
@@ -78,6 +90,7 @@ const ApiServices = {
   getCommentsByArticleID,
   postCommentOnArticle,
   login,
+  likeComment,
 };
 
 export default ApiServices;

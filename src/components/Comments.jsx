@@ -24,9 +24,21 @@ const Comments = ({ articleId }) => {
         page + 1
       );
       if (response.data.comments.length === 0) return;
-      // bad practice to mutate state directly
       setComments(comments.concat(response.data.comments));
       setPage(page + 1);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleLike = async (commentId) => {
+    try {
+      const response = await NewsServiceApi.likeComment(commentId);
+      setComments(
+        comments.map((comment) =>
+          comment.comment_id === commentId ? response.data.comment : comment
+        )
+      );
     } catch (error) {
       console.log(error);
     }
@@ -47,6 +59,16 @@ const Comments = ({ articleId }) => {
               {new Date(singleComment.created_at).toLocaleDateString()}
             </span>
             <p className="text-sm">{singleComment.body}</p>
+            <p className="text-sm font-sans text-blue-700 font-bold">
+              Likes:{" "}
+              <span className="text-green-600">{singleComment.votes}</span>
+            </p>
+            <p
+              className="cursor-pointer"
+              onClick={() => handleLike(singleComment.comment_id)}
+            >
+              👍🏿
+            </p>
           </div>
         );
       })}
