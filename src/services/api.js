@@ -62,17 +62,8 @@ const postCommentOnArticle = async (id, username, comment) => {
 };
 
 const login = async (username) => {
-  try {
-    const resopnse = await NewsAPI.get(`/users/${username}`);
-    if (resopnse.data.message === "Username not found") {
-      Promise.reject(resopnse.data.message);
-    }
-    return resopnse;
-  } catch (error) {
-    const { response } = error;
-
-    return response.data.message;
-  }
+  const { data } = await NewsAPI.get(`/users/${username}`);
+  return data;
 };
 
 const likeComment = async (id) => {

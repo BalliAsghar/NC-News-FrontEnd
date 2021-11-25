@@ -13,9 +13,9 @@ const Login = () => {
     try {
       const user = await NewsServiceApi.login(username);
       setUser(user);
-      // setRedirect(true);
+      setRedirect(true);
     } catch (error) {
-      console.log(error);
+      setError(error.response.data.message);
     }
   };
   return (
