@@ -2,7 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../context/User.Context";
 const Navbar = () => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+
+  const handleLogOut = () => {
+    setUser(null);
+  };
 
   return (
     <header className="text-gray-400 bg-white body-font">
@@ -14,12 +18,26 @@ const Navbar = () => {
           </h1>
         </div>
         <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
-          <Link
-            to={"/user/login"}
-            className="raleway mx-1 text-2xl font-semibold bg-gray-800 border rounded p-2 text-white hover:bg-gray-900 cursor-pointer"
-          >
-            Sign In
-          </Link>
+          {user ? (
+            <div className="flex">
+              <div className="raleway mx-1 text-2xl font-semibold bg-gray-800 border rounded p-2 text-white hover:bg-gray-900 cursor-pointer">
+                {user.user.username}
+              </div>
+              <div
+                className="raleway mx-1 text-2xl font-semibold bg-red-600 border rounded p-2 text-white hover:bg-red-900 cursor-pointer"
+                onClick={handleLogOut}
+              >
+                Logout
+              </div>
+            </div>
+          ) : (
+            <Link
+              to={"/user/login"}
+              className="raleway mx-1 text-2xl font-semibold bg-gray-800 border rounded p-2 text-white hover:bg-gray-900 cursor-pointer"
+            >
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
     </header>

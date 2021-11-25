@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import NewsServiceApi from "../services/api";
-
 const Comments = ({ articleId }) => {
   if (!articleId) return null;
 

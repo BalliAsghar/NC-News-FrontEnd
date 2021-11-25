@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import useArticleByID from "../hooks/useArticleByID";
-import useArticleComments from "../hooks/useArticleComments";
 import AddComments from "./AddComments";
 import Comments from "./Comments";
 
