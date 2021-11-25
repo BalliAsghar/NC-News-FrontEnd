@@ -18,7 +18,7 @@ const Navbar = () => {
             to={"/user/login"}
             className="raleway mx-1 text-2xl font-semibold bg-gray-800 border rounded p-2 text-white hover:bg-gray-900 cursor-pointer"
           >
-            Post
+            Sign In
           </Link>
         </div>
       </div>
