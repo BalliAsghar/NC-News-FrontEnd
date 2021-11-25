@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Headlines from "./components/Headlines";
 import Article from "./components/Article";
@@ -10,7 +10,15 @@ import UserContext from "./context/User.Context";
 import Profile from "./components/Profile";
 
 function App() {
-  const [user, setUser] = useState(null);
+  // check if user is stored in local storage
+
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) setUser(JSON.parse(user));
+  }, []);
+
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>

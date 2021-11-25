@@ -13,6 +13,8 @@ const Login = () => {
     try {
       const user = await NewsServiceApi.login(username);
       setUser(user);
+      // set user to local storage
+      localStorage.setItem("user", JSON.stringify(user));
       setRedirect(true);
     } catch (error) {
       setError(error.response.data.message);
