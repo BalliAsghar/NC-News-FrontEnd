@@ -5,19 +5,17 @@ import { useState, useContext } from "react";
 
 const Login = () => {
   const [username, setUsername] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
   const [redirect, setRedirect] = useState(false);
   const { setUser } = useContext(UserContext);
 
   const handleSubmit = async (username) => {
     try {
       const user = await NewsServiceApi.login(username);
-      console.log(response);
       setUser(user);
       // setRedirect(true);
     } catch (error) {
-      // console.log(error)
-      // setError(error);
+      console.log(error);
     }
   };
   return (
@@ -27,7 +25,7 @@ const Login = () => {
         <div className="mb-4">
           <p className="text-gray-600">Sign In</p>
           <h2 className="text-red-500 font-bold">
-            {error !== "" ? error : null}
+            {error && <p className="text-red-500">{error}</p>}
           </h2>
         </div>
         <div>
@@ -35,14 +33,13 @@ const Login = () => {
             className="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600"
             type="text"
             placeholder="Username"
-            value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
 
         <div>
           <button
-            onClick={handleSubmit}
+            onClick={() => handleSubmit(username)}
             className="w-full py-4 border-2 rounded text-sm font-bold bg-gray-600 hover:bg-gray-900 text-white transition duration-200"
           >
             Sign In

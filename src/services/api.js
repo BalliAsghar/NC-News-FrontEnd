@@ -64,10 +64,14 @@ const postCommentOnArticle = async (id, username, comment) => {
 const login = async (username) => {
   try {
     const resopnse = await NewsAPI.get(`/users/${username}`);
-    console.log(resopnse.data.user);
-    return resopnse.data.user;
+    if (resopnse.data.message === "Username not found") {
+      Promise.reject(resopnse.data.message);
+    }
+    return resopnse;
   } catch (error) {
-    return error;
+    const { response } = error;
+
+    return response.data.message;
   }
 };
 
