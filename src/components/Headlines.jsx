@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import useAllArticles from "../hooks/useAllArticles";
-
+import Topics from "./Topics";
 const Headlines = () => {
   const { articles, error, loading } = useAllArticles();
 
@@ -9,7 +9,7 @@ const Headlines = () => {
 
   return (
     <div>
-      {" "}
+      {<Topics />}
       <div className="flex items-center justify-center mt-10">
         <div className="grid grid-cols-1 gap-2">
           {articles.map((article) => {
