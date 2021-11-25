@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import NewsServiceApi from "../services/api";
 
-const useArticleComments = (article_id) => {
+const useArticleComments = (article_id, p) => {
   const [comments, setComments] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);

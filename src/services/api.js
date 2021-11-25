@@ -35,9 +35,26 @@ const getArticlesByID = async (id) => {
   }
 };
 
-const getCommentsByArticleID = async (id) => {
+const getCommentsByArticleID = async (id, p) => {
+  const params = {
+    p: p,
+  };
   try {
-    const resopnse = await NewsAPI.get(`/articles/${id}/comments`);
+    const resopnse = await NewsAPI.get(`/articles/${id}/comments`, { params });
+    return resopnse;
+  } catch (error) {
+    return error;
+  }
+};
+
+const postCommentOnArticle = async (id, username, comment) => {
+  const data = {
+    username,
+    body: comment,
+  };
+
+  try {
+    const resopnse = await NewsAPI.post(`/articles/${id}/comments`, data);
     return resopnse;
   } catch (error) {
     return error;
@@ -49,6 +66,7 @@ const ApiServices = {
   getTopics,
   getArticlesByID,
   getCommentsByArticleID,
+  postCommentOnArticle,
 };
 
 export default ApiServices;

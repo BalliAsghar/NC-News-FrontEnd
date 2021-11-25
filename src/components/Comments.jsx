@@ -1,20 +1,61 @@
-const Comments = ({ comments }) => {
+import { useEffect, useState } from "react";
+import NewsServiceApi from "../services/api";
+
+const Comments = ({ articleId }) => {
+  if (!articleId) return null;
+
+  const [comments, setComments] = useState();
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    async function fetchComments() {
+      const response = await NewsServiceApi.getCommentsByArticleID(articleId);
+      setComments(response.data.comments);
+      setLoading(false);
+    }
+    fetchComments();
+  }, []);
+
+  const loadMoreComments = async () => {
+    try {
+      const response = await NewsServiceApi.getCommentsByArticleID(
+        articleId,
+        page + 1
+      );
+      if (response.data.comments.length === 0) return;
+      // bad practice to mutate state directly
+      setComments(comments.concat(response.data.comments));
+      setPage(page + 1);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (loading) return <p>Loading...</p>;
+
   return (
     <div>
-      {comments.map((comment) => {
+      {comments.map((singleComment) => {
         return (
           <div
-            key={comment.comment_id}
+            key={singleComment.comment_id}
             className="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed"
           >
-            <strong>{comment.author}</strong>{" "}
+            <strong>{singleComment.author}</strong>{" "}
             <span className="text-xs text-blue-700">
-              {new Date(comment.created_at).toLocaleDateString()}
+              {new Date(singleComment.created_at).toLocaleDateString()}
             </span>
-            <p className="text-sm">{comment.body}</p>
+            <p className="text-sm">{singleComment.body}</p>
           </div>
         );
       })}
+      <div
+        onClick={loadMoreComments}
+        className="flex flex-auto content-center justify-center text-blue-800 cursor-pointer"
+      >
+        Load more Comments
+      </div>
     </div>
   );
 };
