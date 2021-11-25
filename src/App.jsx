@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./components/Login";
 
 import UserContext from "./context/User.Context";
+import Profile from "./components/Profile";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -20,6 +21,7 @@ function App() {
           <Route path="/article/:articleID" element={<Article />} />
           <Route path="/topics/:topic" element={<ArticlesByTopics />} />
           <Route path="/user/login" element={<LoginPage />} />
+          <Route path="/user/profile" element={<Profile />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>

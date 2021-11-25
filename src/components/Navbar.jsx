@@ -21,7 +21,7 @@ const Navbar = () => {
           {user ? (
             <div className="flex">
               <div className="raleway mx-1 text-2xl font-semibold bg-gray-800 border rounded p-2 text-white hover:bg-gray-900 cursor-pointer">
-                {user.user.username}
+                <Link to={"/user/profile"}>{user.user.username}</Link>
               </div>
               <div
                 className="raleway mx-1 text-2xl font-semibold bg-red-600 border rounded p-2 text-white hover:bg-red-900 cursor-pointer"
