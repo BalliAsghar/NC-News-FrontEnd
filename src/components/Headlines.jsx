@@ -25,7 +25,7 @@ const Headlines = () => {
       }
     }
     fetchData();
-  }, [likedArticles]);
+  }, [likedArticles, topic, page]);
 
   const handleLike = async (id) => {
     // get liked article by id
