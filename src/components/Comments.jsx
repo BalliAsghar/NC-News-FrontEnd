@@ -59,7 +59,7 @@ const Comments = ({ articleId }) => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <div>
+    <div className="grid grid-flow-row gap-2">
       {comments.map((singleComment) => {
         return (
           <div
