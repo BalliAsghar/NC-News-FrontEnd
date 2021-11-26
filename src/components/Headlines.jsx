@@ -11,6 +11,12 @@ const Headlines = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  const handlePage = () => {
+    // if page is 1, don't decrement
+    if (page === 1) return;
+    setPage(page - 1);
+  };
+
   return (
     <div>
       {<Topics />}
@@ -37,7 +43,7 @@ const Headlines = () => {
       </div>
       <div className="flex content-center justify-center">
         <button
-          onClick={() => setPage((page) => page - 1)}
+          onClick={handlePage}
           className="text-blue-800 cursor-pointer pr-3"
         >
           Previous
