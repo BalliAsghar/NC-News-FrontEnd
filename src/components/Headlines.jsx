@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAllArticles from "../hooks/useAllArticles";
 import Topics from "./Topics";
+import MainBody from "./MainBody";
 
 const Headlines = () => {
   const [topic, setTopic] = useState();
@@ -42,15 +43,12 @@ const Headlines = () => {
                     <h2 className="font-bold text-2xl text-gray-800 tracking-normal">
                       {article.title}
                     </h2>
-                    <p className="text-sm text-gray-700 px-2 mr-1">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Tempora reiciendis ad architecto at aut placeat quia,
-                      minus dolor praesentium officia maxime deserunt porro amet
-                      ab debitis deleniti modi soluta similique...
-                    </p>
+                    <div className="text-sm text-gray-700 px-2 mr-1">
+                      <MainBody id={article.article_id} />
+                    </div>
                     <div className="flex items-center justify-between mt-2 mx-6">
-                      <a href="#" className="text-blue-500 text-xs -ml-3 ">
-                        Show More
+                      <a href="#" className="-ml-3 ">
+                        Like
                       </a>
                       <a href="#" className="flex text-gray-700">
                         <svg
@@ -79,7 +77,10 @@ const Headlines = () => {
                       </div>
                       <h2 className="text-sm tracking-tighter text-gray-900">
                         <a href="#">By {article.author}</a>{" "}
-                        <span className="text-gray-600">21 SEP 2015.</span>
+                        <span className="text-blue-500">
+                          {" "}
+                          - {new Date(article.created_at).toLocaleDateString()}
+                        </span>
                       </h2>
                     </div>
                   </div>
