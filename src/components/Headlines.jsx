@@ -23,11 +23,11 @@ const Headlines = () => {
     <div>
       {<Topics setTopic={changeTopic} />}
       <div className="container mx-auto my-auto">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-0 md:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1">
           {articles.map((article) => {
             return (
               <div
-                class="mx-auto px-4 py-8 max-w-xl my-20"
+                class="mx-auto px-4 py-8 max-w-xl my-5"
                 key={article.article_id}
               >
                 <div class="bg-white shadow-2xl rounded-lg mb-6 tracking-wide">
