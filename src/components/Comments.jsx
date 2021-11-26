@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import NewsServiceApi from "../services/api";
+import UserContext from "../context/User.Context";
 const Comments = ({ articleId }) => {
   if (!articleId) return null;
 
   const [comments, setComments] = useState();
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [commentRemoved, setcommentRemoved] = useState(false);
+
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     async function fetchComments() {
@@ -14,7 +18,7 @@ const Comments = ({ articleId }) => {
       setLoading(false);
     }
     fetchComments();
-  }, []);
+  }, [commentRemoved]);
 
   const loadMoreComments = async () => {
     try {
@@ -43,6 +47,15 @@ const Comments = ({ articleId }) => {
     }
   };
 
+  const HandleDelete = async (id, author) => {
+    if (author !== user.user.username) return;
+
+    try {
+      await NewsServiceApi.deleteComment(id);
+      setcommentRemoved((prev) => !prev);
+    } catch (error) {}
+  };
+
   if (loading) return <p>Loading...</p>;
 
   return (
@@ -68,6 +81,14 @@ const Comments = ({ articleId }) => {
             >
               👍🏿
             </p>
+            <button
+              className="cursor-pointer"
+              onClick={() =>
+                HandleDelete(singleComment.comment_id, singleComment.author)
+              }
+            >
+              ❌
+            </button>
           </div>
         );
       })}

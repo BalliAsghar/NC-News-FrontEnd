@@ -79,6 +79,15 @@ const likeComment = async (id) => {
   }
 };
 
+const deleteComment = async (id) => {
+  try {
+    const resopnse = await NewsAPI.delete(`/comments/${id}`);
+    return resopnse.status;
+  } catch (error) {
+    return error;
+  }
+};
+
 const ApiServices = {
   getArticles,
   getTopics,
@@ -87,6 +96,7 @@ const ApiServices = {
   postCommentOnArticle,
   login,
   likeComment,
+  deleteComment,
 };
 
 export default ApiServices;
