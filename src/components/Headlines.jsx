@@ -23,7 +23,7 @@ const Headlines = () => {
     <div>
       {<Topics setTopic={changeTopic} />}
       <div className="container mx-auto my-auto">
-        <div className="grid grid-cols-3 gap-0 md:grid-cols-2 xl:grid-cols-3 sm:grid-cols-1">
+        <div className="grid grid-cols-3 gap-0 xs:grid-cols-1 md:grid-cols-2 xl:grid-cols-3  ">
           {articles.map((article) => {
             return (
               <div
