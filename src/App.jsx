@@ -10,8 +10,6 @@ import UserContext from "./context/User.Context";
 import Profile from "./components/Profile";
 
 function App() {
-  // check if user is stored in local storage
-
   const [user, setUser] = useState();
 
   useEffect(() => {
@@ -23,7 +21,6 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider value={{ user, setUser }}>
         <Navbar />
-
         <Routes>
           <Route path="/" element={<Headlines />} />
           <Route path="/article/:articleID" element={<Article />} />

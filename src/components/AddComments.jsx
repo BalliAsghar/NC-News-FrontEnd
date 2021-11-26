@@ -3,6 +3,7 @@ import NewsServiceApi from "../services/api";
 import UserContext from "../context/User.Context";
 const AddComments = ({ articleId }) => {
   const [comment, setComment] = useState("");
+  const [message, setMessage] = useState("");
 
   const { user } = useContext(UserContext);
 
@@ -16,6 +17,7 @@ const AddComments = ({ articleId }) => {
         comment
       );
       setComment("");
+      setMessage("Comment Posted");
     } catch (error) {
       console.log(error);
     }
@@ -42,6 +44,11 @@ const AddComments = ({ articleId }) => {
           ></textarea>
         </div>
         <div className="w-full flex items-start md:w-full px-3">
+          {message && (
+            <div className="flex items-start w-1/2 text-green-700 font-semibold px-2 mr-auto">
+              {message}
+            </div>
+          )}
           {!user && (
             <div className="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
               <svg
