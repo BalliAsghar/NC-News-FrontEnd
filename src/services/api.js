@@ -88,6 +88,18 @@ const deleteComment = async (id) => {
   }
 };
 
+const likeArticle = async (id) => {
+  const data = {
+    inc_votes: 1,
+  };
+  try {
+    const resopnse = await NewsAPI.patch(`/articles/${id}`, data);
+    return resopnse;
+  } catch (error) {
+    return error;
+  }
+};
+
 const ApiServices = {
   getArticles,
   getTopics,
@@ -97,6 +109,7 @@ const ApiServices = {
   login,
   likeComment,
   deleteComment,
+  likeArticle,
 };
 
 export default ApiServices;
