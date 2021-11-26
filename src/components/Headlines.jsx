@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAllArticles from "../hooks/useAllArticles";
 import Topics from "./Topics";
+
 const Headlines = () => {
-  const { articles, error, loading } = useAllArticles();
+  const [topic, setTopic] = useState();
+  const [page, setPage] = useState(1);
+  const { articles, error, loading } = useAllArticles(topic, page);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
@@ -30,6 +34,20 @@ const Headlines = () => {
             );
           })}
         </div>
+      </div>
+      <div className="flex content-center justify-center">
+        <button
+          onClick={() => setPage((page) => page - 1)}
+          className="text-blue-800 cursor-pointer pr-3"
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => setPage((page) => page + 1)}
+          className="text-blue-800 cursor-pointer"
+        >
+          Next
+        </button>
       </div>
     </div>
   );

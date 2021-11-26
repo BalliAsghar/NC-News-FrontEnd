@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import NewsServiceApi from "../services/api";
 
-const useAllArticle = () => {
+const useAllArticle = (topic, p) => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -10,7 +10,7 @@ const useAllArticle = () => {
     setLoading(true);
     const fetchData = async () => {
       try {
-        const response = await NewsServiceApi.getArticles();
+        const response = await NewsServiceApi.getArticles(topic, p);
         setArticles(response.data.Articles);
         setLoading(false);
       } catch (error) {
@@ -19,7 +19,7 @@ const useAllArticle = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [topic, p]);
 
   return { articles, error, loading };
 };

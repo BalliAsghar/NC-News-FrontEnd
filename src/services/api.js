@@ -4,9 +4,10 @@ const NewsAPI = axios.create({
   baseURL: "https://nc-news-200.herokuapp.com/api",
 });
 
-const getArticles = async (topic) => {
+const getArticles = async (topic, p) => {
   const params = {
     topic: topic,
+    p: p,
   };
 
   try {
