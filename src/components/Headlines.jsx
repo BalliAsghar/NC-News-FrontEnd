@@ -17,9 +17,11 @@ const Headlines = () => {
     setPage(page - 1);
   };
 
+  const changeTopic = (topic) => setTopic(topic);
+
   return (
     <div>
-      {<Topics />}
+      {<Topics setTopic={changeTopic} />}
       <div className="flex items-center justify-center mt-10">
         <div className="grid grid-cols-1 gap-2">
           {articles.map((article) => {
