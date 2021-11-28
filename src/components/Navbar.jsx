@@ -15,7 +15,12 @@ const Navbar = () => {
         <a className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-white lg:items-center lg:justify-center mb-4 md:mb-0"></a>
         <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
           <h1 className="text-7xl text-center text-gray-700 raleway">
-            <Link to="/">NC News</Link>
+            <Link to="/">
+              <span style={{ color: "#eb1b24" }} className="font-bold">
+                NC
+              </span>{" "}
+              - News
+            </Link>
           </h1>
         </div>
         <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
