@@ -62,17 +62,20 @@ const Headlines = () => {
                 key={article.article_id}
               >
                 <div className="bg-white shadow-lg rounded-lg mb-6 tracking-wide">
-                  <div className="md:flex-shrink-0">
-                    <img
-                      src={article.image_url}
-                      alt="mountains"
-                      className="w-full h-64 rounded-lg rounded-b-none"
-                    />
-                  </div>
+                  <Link to={`/article/${article.article_id}`}>
+                    <div className="md:flex-shrink-0">
+                      <img
+                        src={article.image_url}
+                        alt="mountains"
+                        className="w-full h-64 rounded-lg rounded-b-none"
+                      />
+                    </div>
+                  </Link>
                   <div className="px-4 py-2 mt-2">
                     <h2 className="font-bold text-2xl text-gray-800 tracking-normal">
                       {article.title}
                     </h2>
+
                     <div className="text-sm text-gray-700 px-2 mr-1">
                       <MainBody id={article.article_id} />
                     </div>
