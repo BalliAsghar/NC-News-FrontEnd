@@ -80,7 +80,7 @@ const Headlines = () => {
                       {user && (
                         <div
                           onClick={() => handleLike(article.article_id)}
-                          className="-ml-3 "
+                          className="-ml-3 cursor-pointer"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"

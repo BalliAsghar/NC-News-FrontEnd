@@ -20,6 +20,12 @@ const Topics = ({ setTopic }) => {
           </div>
         );
       })}
+      <div
+        onClick={() => handleTopic()}
+        className="bg-gray-700 raleway mx-1 text-2xl font-semibold text-white border rounded p-2  hover:bg-gray-700 hover:text-white cursor-pointer"
+      >
+        All Article
+      </div>
     </div>
   );
 };

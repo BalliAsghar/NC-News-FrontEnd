@@ -6,7 +6,6 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     setUser(null);
-
     localStorage.removeItem("user");
   };
 
