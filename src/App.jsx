@@ -8,6 +8,7 @@ import LoginPage from "./components/Login";
 
 import UserContext from "./context/User.Context";
 import Profile from "./components/Profile";
+import { Navigate } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState();
@@ -27,6 +28,7 @@ function App() {
           <Route path="/topics/:topic" element={<ArticlesByTopics />} />
           <Route path="/user/login" element={<LoginPage />} />
           <Route path="/user/profile" element={<Profile />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
