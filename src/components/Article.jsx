@@ -14,6 +14,7 @@ const Article = () => {
   if (!loading) {
     return (
       <div className="m-2 p-2 mt-14">
+        <img src={article.image_url} alt="Image" />
         <h1 className="font-mono text-3xl font-extrabold text-blue-600">
           {article.title}
         </h1>
