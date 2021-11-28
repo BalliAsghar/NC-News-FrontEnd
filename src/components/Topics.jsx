@@ -9,7 +9,7 @@ const Topics = ({ setTopic }) => {
 
   const handleTopic = (topic) => setTopic(topic);
   return (
-    <div className="flex flex-auto content-center justify-center mt-3 -ml-20">
+    <div className="flex flex-auto content-center justify-center mt-3 -ml-20 xs:-ml-0">
       {topics.map((topic) => {
         return (
           <div
