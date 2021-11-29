@@ -1,6 +1,6 @@
 # NC-News
 
-[See live](https://balliasghar.dev/projects/nc-news/).
+[See live](https://nc-news-200.netlify.app/)
 
 [Back-End](https://github.com/BalliAsghar/Nc-News)
 
