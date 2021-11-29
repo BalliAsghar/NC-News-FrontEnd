@@ -4,6 +4,9 @@
 
 [Back-End](https://github.com/BalliAsghar/Nc-News)
 
+## Site Status
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d78c825b-1055-4703-a97e-383329dbb59e/deploy-status)](https://app.netlify.com/sites/nc-news-200/deploys)
+
 ## Screenshot
 
 ![App Screenshot](https://i.imgur.com/T95gLl1.png)
