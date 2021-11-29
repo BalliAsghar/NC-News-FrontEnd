@@ -1,10 +1,8 @@
 # NC-News
 
-[Click here to access the website](https://balliasghar.dev/projects/nc-news/).
+[See live](https://balliasghar.dev/projects/nc-news/).
 
-[Click here to access the API](https://balli-test-news.herokuapp.com/api).
-
-[Click here to see the API repository](https://github.com/BalliAsghar/Nc-News)
+[Back-End](https://github.com/BalliAsghar/Nc-News)
 
 ## Screenshot
 
