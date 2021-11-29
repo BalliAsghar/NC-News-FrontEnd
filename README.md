@@ -10,7 +10,7 @@
 
 ![App Screenshot](https://i.imgur.com/T95gLl1.png)
 
-## Background
+## Description
 
 NC News is a Nodejs, Expressjs, Reactjs, and PostgreSQL full-stack application. It is a news app that allows users to scroll through articles. The articles can be liked and commented on by users. It's mobile-friendly and responsive.
 
